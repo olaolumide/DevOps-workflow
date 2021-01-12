@@ -1,0 +1,32 @@
+{
+  "name": "devops-workflow",
+  "version": "1.0.0",
+  "description": "Course assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olaolumide/DevOps-workflow.git"
+  },
+  "keywords": [
+    "DevOps"
+  ],
+  "author": "Olaide Ogunronbi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/olaolumide/DevOps-workflow/issues"
+  },
+  "homepage": "https://github.com/olaolumide/DevOps-workflow#readme",
+  "devDependencies": {
+    "grunt": "^1.3.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-sass": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.1.0"
+    
+  }
+}

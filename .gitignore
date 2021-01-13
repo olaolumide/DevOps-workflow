@@ -3,4 +3,4 @@ node_modules
 bower_components
 .tep
 .sass-cache
-builds/**/images/*
+/* builds/**/images/* */

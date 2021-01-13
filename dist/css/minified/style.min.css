@@ -1,0 +1,1 @@
+@media (max-width:700px){#navbar .mobileMenu{display:block}#navbar .logoImage{width:50px}#navbar .deskMenu{display:none}}#navbar .mobileMenu{display:none;background:#ff0}@media (max-width:700px){#navbar .mobileMenu{display:block;background:green}#navbar .deskMenu{display:none}}#navbar .deskMenu{display:inline-block}#navbar .deskMenu li{text-decoration:none}

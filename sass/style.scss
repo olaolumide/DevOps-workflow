@@ -1,4 +1,21 @@
 @import "partials/header";
 @import "partials/menu";
-@import "partials/variabls";
+@import "partials/variables";
 @import "partials/footer";
+
+@media (max-width: 700px) {
+  #navbar .mobileMenu {
+    display: block;
+    background: green;
+  }
+  #navbar .deskMenu {
+    display: none;
+  }
+}
+
+#navbar .deskMenu {
+  display: inline-block;
+}
+#navbar .deskMenu li {
+  text-decoration: none;
+}

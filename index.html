@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="description" content=" Letha shoe ">
     <meta name="Keywords"
@@ -7,7 +8,7 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-compatible" content="IE=edge" />
     <title> Letha </title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="sass/style.scss">
     <!---style-sheet above--->
     <!---<link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">--->
@@ -19,15 +20,16 @@
     <!---Font awesome--->
 
 </head>
+
 <body>
     <header>
         <nav id="navbar">
-            <img class="logoImage" src="../images/letha3.png" alt="Classical shoes">
-           
+            <img class="logoImage" src="images/letha3.png" alt="Classical shoes">
+
             <div class="menuMobile">
                 <span id="mobileIcon"> &#9776; </span>
-                <ul class="mobileMenu" >
-                   
+                <ul class="mobileMenu">
+
                     <li><a href="#"> HOME </a></li>
                     <li><a href="#"> HISTORY </a></li>
                     <li><a href="#"> SHOE TYPE </a></li>
@@ -36,7 +38,7 @@
                 </ul>
             </div>
 
-            <ul class="deskMenu">                
+            <ul class="deskMenu">
                 <li><a href="#"> HOME </a></li>
                 <li><a href="#"> HISTORY </a></li>
                 <li><a href="#"> SHOE TYPE </a></li>
@@ -47,7 +49,7 @@
 
     </header>
     <main role="main">
-        <div class=""> 
+        <div class="">
 
         </div>
 
@@ -56,18 +58,7 @@
 
     </footer>
 
-    <script src="../scriptJs/script.js"> </script>
-    <script >/*This is called a Module function which is reuseable */
-        /*The objects in this script will be output when the function runs
-        and if no Object is specified, it will output the DEFAULT created 
-        in the script module just like 'ray.run()' */
-        ray.speak({say: 'Temi is'});
-        ray.run() //({speed: 'fast'});
-
-        /*after adding the "return this" to both Objects' bottom in the function 
-        method, I can now do this to the Objects here as in :-"ray.speak({say: '
-        Temi is'}).run()". This can be done as mamy times to create a long 
-        statement. */
-    </script>
+    <script src="scriptJs/script.js"> </script>
 </body>
+
 </html>

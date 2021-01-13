@@ -1,20 +1,12 @@
-$raggingColor: #f06d06;
-$darking: #333;
-$superGold: #b38d04;
-$supremePurple: #b19cdb;
-$iamWhite: #ffffff;
-$homePageh1Font: "Dancing Script", cursive;
-$designFont: "Pacifico", cursive;
-$contentWords: "Roboto", sans-serif;
-$serifWords: "Roboto Slab", serif;
-
 @media (max-width: 700px) {
   #navbar .mobileMenu {
     display: block;
   }
+
   #navbar .logoImage {
     width: 50px;
   }
+
   #navbar .deskMenu {
     display: none;
   }
@@ -62,21 +54,22 @@ $serifWords: "Roboto Slab", serif;
   width: 60px;
   margin: -20px;
 }
-/* Category list */ /*
+/* Category list */
+/*
 .drop__list {
   background-color: $darking;
   color: $darking;
   display: none;
   position: absolute;
   font-size: 16px;*/
-
 /* &__list li {
     display: block;
     color: #000;
   }
   &__list li a {
     color: $darking;
-  }*/ /*
+  }*/
+/*
 }
 .drop ul li {
   display: block;
@@ -85,3 +78,22 @@ $serifWords: "Roboto Slab", serif;
 }
 
 */
+@media (max-width: 700px) {
+  #navbar .mobileMenu {
+    display: block;
+    background: green;
+  }
+
+  #navbar .deskMenu {
+    display: none;
+  }
+}
+#navbar .deskMenu {
+  display: inline-block;
+}
+
+#navbar .deskMenu li {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */

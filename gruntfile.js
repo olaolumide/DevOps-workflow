@@ -9,15 +9,18 @@ module.exports = function(grunt){
             },
            dist:{
                src: ['scriptJs/*.js'/*This get any js file*/],
-               dest:'dist/script.js'
+               dest:'dist/script/script.js'
            } 
         },//Js initial configurations.
 
         sass:{
             dist:{
-                files:{                    
+               
+                files:{ 
+                    'dist/css/style.css' : 'sass/style.scss'
+                    /*
                  src:'sass/style.scss',
-                 dest:'dist/css/style.css'
+                 dest:'dist/css/style.css'    */             
                 }
             }
         },//Sass configurations.
@@ -29,29 +32,61 @@ module.exports = function(grunt){
             }
         },//Minifying the style sheet
 
-        browserSync:{
+        /* browserSync:{
             dev:{
                 bsFiles:{
                     src:[
                         'dist/css/minified/styleMedia.min.css',
-                        '*.html'
+                        '*.html',
+                        '*.js'
                     ]
                 },
                 option:{
                     watchTask: true,
-                    server:'./'
+                    server:'./dist'
                 }
             }
-        },//Browser-sync
+        }, //Browser-sync */        
+
+        compressImages:{
+            prod : {
+                input_path: 'src/img/**/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}',
+                output_path: 'build/img/',
+                 options: {
+                    compress_force: false, 
+                    statistic: true, 
+                    autoupdate: true,
+                    pathLog: './log/lib/compress-images'
+                },
+                jpg: {
+                     engine: 'mozjpeg',
+                    command: ['-quality', '60']
+                },
+                png: {
+                    engine: 'pngquant',
+                    command: ['--quality=20-50']
+                },
+                svg: {
+                    engine: 'svgo',
+                    command: '--multipass'
+                },
+                gif: {
+                    engine: 'gifsicle',
+                    command: ['--colors', '64', '--use-col=web']
+                }
+            }
+        },
 
         watch:{
             css:{
-                files:'sass/style.scss',
+                files:'sass/style.scss', 
                 tasks:['sass', 'cssmin']
             }
         }//Watching sass.
 
+
     });//All component configuration function. 
+    
 
 
 
@@ -60,8 +95,9 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-compress-images');
+    //grunt.loadNpmTasks('grunt-browser-sync');
 
-    grunt.registerTask('default', ['concat', 'browserSync', 'sass', 'watch'] );
+    grunt.registerTask('default', ['concat', 'sass', 'cssmin', 'compressImages', 'watch'] );
 
 };

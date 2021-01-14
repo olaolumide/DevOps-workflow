@@ -2,20 +2,18 @@
   #navbar .mobileMenu {
     display: block;
   }
-
   #navbar .mobileMenu ul {
     width: 100%;
     background: orange;
   }
-
   #navbar .logoImage {
     width: 100px;
   }
-
   #navbar .deskMenu {
     display: none;
   }
 }
+
 #navbar .mobileMenu {
   display: none;
   background: yellow;
@@ -88,16 +86,15 @@
     display: block;
     background: green;
   }
-
   #navbar .mobileMenu ul {
     width: 100%;
     background: orange;
   }
-
   #navbar .deskMenu {
     display: none;
   }
 }
+
 #navbar .deskMenu {
   display: inline-block;
 }
@@ -105,5 +102,4 @@
 #navbar .deskMenu li {
   text-decoration: none;
 }
-
 /*# sourceMappingURL=style.css.map */

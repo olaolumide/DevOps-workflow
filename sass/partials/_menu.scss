@@ -8,17 +8,22 @@ $designFont: "Pacifico", cursive;
 $contentWords: "Roboto", sans-serif;
 $serifWords: "Roboto Slab", serif;
 
-@media (max-width: 700px) {
+@media (max-width: 780px) {
   #navbar .mobileMenu {
     display: block;
   }
+  #navbar .mobileMenu ul {
+    width: 100%;
+    background: orange;
+  }
   #navbar .logoImage {
-    width: 50px;
+    width: 100px;
   }
   #navbar .deskMenu {
     display: none;
   }
 }
+
 #navbar .mobileMenu {
   display: none;
   background: yellow;

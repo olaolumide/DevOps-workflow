@@ -1,7 +1,14 @@
 module.exports = function(grunt){
-    grunt.initConfig({         
-        pkg: grunt.file.readJSON('package.json'),
+    const mozjpeg = require('imagemin-jpegtran');
+    const pngquant = require('imagemin-optipng');
+    const gifsicle = require('imagemin-gifsicle');
 
+//const imageminJpegtran = require('imagemin-jpegtran');
+//const imageminPngquant = require('imagemin-pngquant');
+
+    grunt.initConfig({       
+        pkg: grunt.file.readJSON('package.json'),        
+        
         concat:{
             options:{
                 seperator:'\n\n//-----------------------\n',
@@ -32,7 +39,7 @@ module.exports = function(grunt){
             }
         },//Minifying the style sheet
 
-        /* browserSync:{
+         browserSync:{
             dev:{
                 bsFiles:{
                     src:[
@@ -46,36 +53,45 @@ module.exports = function(grunt){
                     server:'./dist'
                 }
             }
-        }, //Browser-sync */        
+        }, //Browser-sync  
 
-        compressImages:{
-            prod : {
-                input_path: 'src/img/**/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}',
-                output_path: 'build/img/',
-                 options: {
-                    compress_force: false, 
-                    statistic: true, 
-                    autoupdate: true,
-                    pathLog: './log/lib/compress-images'
+       imagemin:{
+           dynamic: {
+              files: [{
+                cwd:'images/',
+                expand: true,
+                src:['**/*.{png, jpg}'],
+                dest: 'dist/images'
+              }]
+                
+            },
+           /*static:{
+                options:{
+                    optimizationLevel: 3,
+                    svgoPlugins: [{removeViewBox: false}],
+                    use:[
+                        pngquant({quality:[0.5, 0.5]}),
+                        mozjpeg({quality: 50})
+                    ] 
                 },
-                jpg: {
-                     engine: 'mozjpeg',
-                    command: ['-quality', '60']
-                },
-                png: {
-                    engine: 'pngquant',
-                    command: ['--quality=20-50']
-                },
-                svg: {
-                    engine: 'svgo',
-                    command: '--multipass'
-                },
-                gif: {
-                    engine: 'gifsicle',
-                    command: ['--colors', '64', '--use-col=web']
+                files:{
+                    'dist/images/img.png': 'src/img.png',
+                    'dist/images/img.jpg': 'src/img.jpg'
                 }
-            }
-        },
+           }*/
+           
+       },//Image compression
+
+       /*cacheBust:{
+         taskName:{
+             options:{
+                assets:[
+                    'assets/**.sass', 'js/*'
+                ]
+            },
+            src:['index.html']
+         }  
+       },*/
 
         watch:{
             css:{
@@ -95,9 +111,10 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-compress-images');
-    //grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    //grunt.loadNpmTasks('grunt-cache-bust');
+    grunt.loadNpmTasks('grunt-browser-sync');
 
-    grunt.registerTask('default', ['concat', 'sass', 'cssmin', 'compressImages', 'watch'] );
+    grunt.registerTask('default', ['concat', 'sass', 'cssmin', 'imagemin', 'browserSync', 'watch'] );
 
 };

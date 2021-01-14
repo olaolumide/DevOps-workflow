@@ -3,10 +3,14 @@
 @import "partials/variables";
 @import "partials/footer";
 
-@media (max-width: 700px) {
+@media (max-width: 780px) {
   #navbar .mobileMenu {
     display: block;
     background: green;
+  }
+  #navbar .mobileMenu ul {
+    width: 100%;
+    background: orange;
   }
   #navbar .deskMenu {
     display: none;
